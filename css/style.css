@@ -1,0 +1,51 @@
+/* GLobales */
+html{
+    box-sizing: border-box;
+}
+body{
+    align-items: center;
+    background-color: rgb(27, 139, 139);
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+h2{
+    color: white;
+    text-align: center;
+}
+li{
+    list-style: none;
+    color: wheat;
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 0;
+    margin: 0;
+}
+
+/* Clases */
+.centrarDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.centrarDiv button{
+    background-color: rgb(24, 109, 109);
+    border: none;
+    color: aliceblue;
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+}
+.centrarDiv button:hover{
+    background-color: rebeccapurple;
+    transition: .5s;
+    transform: translateY(5px);
+}
+.centrarButton{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
