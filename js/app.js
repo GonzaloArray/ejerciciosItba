@@ -12,15 +12,13 @@
     -->
  */
 
-const btnOne = document.querySelector('#btnOne');
-const btnTwo = document.querySelector('#btnTwo');
-let arrayNew = [];
-
 document.addEventListener('DOMContentLoaded', iniciarApp);
 
+let arrayNew = [];
+
 function iniciarApp() {
-    btnOne.addEventListener('click', primerClick);
-    btnTwo.addEventListener('click', segundoClick);
+    document.querySelector('#btnOne').addEventListener('click', primerClick);
+    document.querySelector('#btnTwo').addEventListener('click', segundoClick);
 }
 
 function primerClick() {
@@ -30,10 +28,12 @@ function primerClick() {
 }
 
 function segundoClick() {
-    limpiarHTML();
+    
     for(let miArray of arrayNew){
         mostrarInfo(miArray);
     }
+
+    arrayNew = [];
 }
 
 function mostrarInfo(mensaje) {
@@ -47,12 +47,4 @@ function mostrarInfo(mensaje) {
 
     // Enviamos la información
     envioInformacion.appendChild(createLi);
-}
-
-function limpiarHTML() {
-    const contenido = document.querySelector('#resultado');
-
-    while (contenido.firstChild) {
-        contenido.removeChild(contenido.firstChild);
-    }
 }
