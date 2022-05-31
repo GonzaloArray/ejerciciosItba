@@ -22,22 +22,18 @@ function iniciarApp() {
 }
 
 function primerClick() {
-
     const infoPrompt = prompt('Ingresar datos');
     arrayNew.push(infoPrompt);
 }
 
 function segundoClick() {
-    
     for(let miArray of arrayNew){
         mostrarInfo(miArray);
     }
-
     arrayNew = [];
 }
 
 function mostrarInfo(mensaje) {
-
     //Enviar la información al DOM
     const envioInformacion = document.querySelector('#resultado');
 
