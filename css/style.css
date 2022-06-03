@@ -1,52 +1,76 @@
-/* GLobales */
+
 html{
     box-sizing: border-box;
 }
 body{
-    align-items: center;
-    background-color: rgb(27, 139, 139);
-    display: flex;
-    justify-content: center;
-    height: 100vh;
+    margin: 0;
     padding: 0;
+}
+h1, h2{
     margin: 0;
 }
-
-h2{
-    color: white;
-    text-align: center;
+ul{
+    padding: 0;
 }
 li{
     list-style: none;
-    color: wheat;
-    font-size: 1.2rem;
-    font-weight: 900;
-    padding: 0;
-    margin: 0;
+}
+header{
+    background-color: #376cff;
+    color: aliceblue;
+    text-align: center;
+    padding: 3.5rem .8rem;
+}
+header h1{
+    font-size: 1.5rem;
+    margin-bottom: .6rem;
+}
+header h2{
+    font-size: .9rem;
+}
+input{
+    margin-bottom: .3rem;
+}
+#formulario{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Clases */
 .centrarDiv{
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     flex-direction: column;
-}
-.centrarDiv button{
-    background-color: rgb(24, 109, 109);
-    border: none;
-    color: aliceblue;
-    padding: 1rem 2rem;
-    margin: 0 1rem;
-    cursor: pointer;
-}
-.centrarDiv button:hover{
-    background-color: rebeccapurple;
-    transition: .5s;
-    transform: translateY(5px);
-}
-.centrarButton{
-    align-items: center;
-    display: flex;
     justify-content: center;
+    height: 100vh;
+}
+.container{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0.6rem 2rem 3rem 2rem;
+}
+#submit{
+    border: 4px solid #ff000014;
+    background-color: #c24c4c;
+    border-radius: .3rem;
+    color: white;
+    margin-top: .4rem;
+    padding: .2rem .4rem;
+}
+
+#resultados li{
+    border: 1px solid #00000020;
+    padding: .2rem .2rem;
+}
+.mostrarTotal{
+    margin-top: 2rem;
+}
+.overflowContainer{
+    box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.75);
+    border-radius: .7rem;
+}
+.errorMensaje{
+    background-color: red;
 }
