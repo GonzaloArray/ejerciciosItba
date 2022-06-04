@@ -11,7 +11,7 @@ function enviarInforme(e) {
     e.preventDefault();
 
     const texto = document.querySelector('#texto').value;
-    const numero = Number(document.querySelector('#numero').value);
+    const numero = parseInt(document.querySelector('#numero').value);
     
     if (texto === '' || numero === 0) {
         mostrarMensaje('Ingrese valores validos');
