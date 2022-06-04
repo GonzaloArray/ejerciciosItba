@@ -96,7 +96,7 @@ function mostrarTotal(gastosTotales) {
     mostrarHtml(total, cantidad);
 }
 
-function mostrarHtml(total, cantidad){
+function mostrarHtml(total = 0, cantidad = 0){
     const resultados = document.querySelector('#resultados');
     
     const mostrarTotal = document.createElement('div');
@@ -134,5 +134,52 @@ function limpiarHTML() {
 function eliminarProducto(id) {
     const resultado = gastos.filter(articulo => articulo.id !== id);
     gastos = [...resultado];
-    console.log(gastos)
+
+    if (gastos.length !== -1) {
+        actualizarResumen();
+    } else {
+        mensajePedidoVacio();
+    }
+}
+
+function actualizarResumen() {
+    
+    limpiarHTML();
+
+    gastos.forEach( articulo =>{
+        const resultados = document.querySelector('#resultados');
+
+        const { texto, numero, id } = articulo;
+
+         //Vamos a crear un li
+         const nuevoGasto = document.createElement('LI');
+         nuevoGasto.className = 'estilosLi';
+         nuevoGasto.dataset.id = id;
+         
+         //Agregar el html del gasto
+         nuevoGasto.innerHTML = `
+         ${texto}: <span class="cantindadEstilo"> $ ${numero} </span>
+         `;
+ 
+         const btnEliminar = document.createElement('button');
+         btnEliminar.textContent = 'Eliminar'
+         btnEliminar.onclick = () => {
+             eliminarProducto(id);
+         }
+         
+         nuevoGasto.appendChild(btnEliminar);
+         //agregar html
+         resultados.appendChild(nuevoGasto);
+    });
+
+    mostrarTotal(gastos);
+}
+function mensajePedidoVacio() {
+    const resultados = document.querySelector('#resultados');
+
+    const texto = document.createElement('P');
+    texto.classList.add('textCentrado');
+    texto.textContent = 'Añade los elementos al pedido';
+
+    resultados.appendChild(texto);
 }
