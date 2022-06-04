@@ -137,8 +137,6 @@ function eliminarProducto(id) {
 
     if (gastos.length !== -1) {
         actualizarResumen();
-    } else {
-        mensajePedidoVacio();
     }
 }
 
@@ -173,13 +171,4 @@ function actualizarResumen() {
     });
 
     mostrarTotal(gastos);
-}
-function mensajePedidoVacio() {
-    const resultados = document.querySelector('#resultados');
-
-    const texto = document.createElement('P');
-    texto.classList.add('textCentrado');
-    texto.textContent = 'Añade los elementos al pedido';
-
-    resultados.appendChild(texto);
 }
