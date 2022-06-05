@@ -1,6 +1,9 @@
 
 document.addEventListener('DOMContentLoaded', iniciarApp);
 
+// Ubicación
+const resultados = document.querySelector('#resultados');
+// Vector de Gastos
 let gastos = [];
 
 function iniciarApp() {
@@ -13,7 +16,7 @@ function enviarInforme(e) {
     const texto = document.querySelector('#texto').value;
     const numero = parseInt(document.querySelector('#numero').value);
     
-    if (texto === '' || numero === 0) {
+    if (texto === '' || isNaN(numero)) {
         mostrarMensaje('Ingrese valores validos');
         return;
     }
@@ -24,7 +27,6 @@ function mostrarMensaje(mensaje) {
     const existeError = document.querySelector('.errorMensaje');
 
     if (!existeError) { 
-        const resultados = document.querySelector('#resultados');
         const divMensaje = document.createElement('div');
         divMensaje.classList.add('errorMensaje');
     
@@ -55,7 +57,6 @@ function mostrarGastos() {
     
 
     gastos.forEach( gasto => {
-        const resultados = document.querySelector('#resultados');
         
         const {texto, numero, id} = gasto;
         
@@ -97,7 +98,6 @@ function mostrarTotal(gastosTotales) {
 }
 
 function mostrarHtml(total = 0, cantidad = 0){
-    const resultados = document.querySelector('#resultados');
     
     const mostrarTotal = document.createElement('div');
     mostrarTotal.classList.add('mostrarTotal');
@@ -123,12 +123,9 @@ function mostrarHtml(total = 0, cantidad = 0){
     resultados.appendChild(mostrarPago);
 }
 
+// Elimina el html viejo
 function limpiarHTML() {
-    const contenido = document.querySelector('#resultados');
-
-    while (contenido.firstChild) {
-        contenido.removeChild(contenido.firstChild);
-    }
+    resultados.textContent = '';
 }
 
 function eliminarProducto(id) {
@@ -145,7 +142,6 @@ function actualizarResumen() {
     limpiarHTML();
 
     gastos.forEach( articulo =>{
-        const resultados = document.querySelector('#resultados');
 
         const { texto, numero, id } = articulo;
 
