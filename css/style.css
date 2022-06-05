@@ -72,5 +72,8 @@ input{
     border-radius: .7rem;
 }
 .errorMensaje{
-    background-color: red;
+    border: 2px solid #da3333;
+    color: #da3333;
+    font-weight: 900;
+    padding: .3rem 2rem;
 }

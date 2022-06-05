@@ -81,6 +81,7 @@ function mostrarGastos() {
         resultados.appendChild(nuevoGasto);
         
     });
+
     mostrarTotal(gastos);
 }
 
@@ -95,9 +96,10 @@ function mostrarTotal(gastosTotales) {
     });
     
     mostrarHtml(total, cantidad);
+
 }
 
-function mostrarHtml(total = 0, cantidad = 0){
+function mostrarHtml(total, cantidad){
     
     const mostrarTotal = document.createElement('div');
     mostrarTotal.classList.add('mostrarTotal');
@@ -131,9 +133,10 @@ function limpiarHTML() {
 function eliminarProducto(id) {
     const resultado = gastos.filter(articulo => articulo.id !== id);
     gastos = [...resultado];
-
-    if (gastos.length !== -1) {
-        actualizarResumen();
+    actualizarResumen();
+    
+    if (gastos.length === 0) {
+        limpiarHTML()
     }
 }
 
